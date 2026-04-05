@@ -1,0 +1,21 @@
+apiVersion: http.keda.sh/v1alpha1
+kind: HTTPScaledObject
+metadata:
+  name: checkout-httpso
+  namespace: lab4
+spec:
+  hosts:
+    - localhost
+  pathPrefixes:
+    - /api/checkout
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: checkout-fn
+    service: checkout-svc
+    port: 3003
+  replicas:
+    min: 0
+    max: 5
+  scaledownPeriod: 30
+  targetPendingRequests: 50
