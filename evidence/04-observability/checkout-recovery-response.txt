@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Content-Length: 244
+Content-Type: application/json; charset=utf-8
+Date: Wed, 20 May 2026 12:21:35 GMT
+Etag: W/"f4-zd6BEcL79+IqmfrZZa8ncCfHFoQ"
+Server: nginx/1.27.5
+X-Keda-Http-Cold-Start: false
+X-Powered-By: Express
+X-Request-Id: ca2-timeout-recovery-001
+
+{"ok":true,"orderId":235,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"ca2-timeout-recovery-001"},"stock":{"sku":1,"inStock":true,"requestId":"ca2-timeout-recovery-001"},"requestId":"ca2-timeout-recovery-001"}

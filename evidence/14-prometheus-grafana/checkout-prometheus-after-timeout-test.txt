@@ -1,0 +1,27 @@
+# HELP checkout_requests_total Total checkout requests received
+# TYPE checkout_requests_total counter
+checkout_requests_total 1
+
+# HELP checkout_success_total Successful checkout requests
+# TYPE checkout_success_total counter
+checkout_success_total 1
+
+# HELP checkout_bad_request_total Bad checkout requests
+# TYPE checkout_bad_request_total counter
+checkout_bad_request_total 0
+
+# HELP checkout_out_of_stock_total Out of stock checkout responses
+# TYPE checkout_out_of_stock_total counter
+checkout_out_of_stock_total 0
+
+# HELP checkout_dependency_failure_total Dependency failure count
+# TYPE checkout_dependency_failure_total counter
+checkout_dependency_failure_total 0
+
+# HELP checkout_dependency_timeout_total Dependency timeout count
+# TYPE checkout_dependency_timeout_total counter
+checkout_dependency_timeout_total 0
+
+# HELP checkout_database_write_failure_total Database write failure count
+# TYPE checkout_database_write_failure_total counter
+checkout_database_write_failure_total 0

@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Content-Length: 262
+Content-Type: application/json; charset=utf-8
+Date: Wed, 20 May 2026 12:26:24 GMT
+Etag: W/"106-6G7OLy5NEzqXEdXg6ctxKbbxHnU"
+Server: nginx/1.27.5
+X-Keda-Http-Cold-Start: false
+X-Powered-By: Express
+X-Request-Id: ca2-networkpolicy-keda-fix-001
+
+{"ok":true,"orderId":236,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"ca2-networkpolicy-keda-fix-001"},"stock":{"sku":1,"inStock":true,"requestId":"ca2-networkpolicy-keda-fix-001"},"requestId":"ca2-networkpolicy-keda-fix-001"}

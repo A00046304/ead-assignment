@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Content-Length: 283
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+Content-Type: application/json; charset=utf-8
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Date: Wed, 20 May 2026 18:02:53 GMT
+Etag: W/"11b-zFh0AK0HHqKblTLTxqvBx9bkea0"
+Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+Referrer-Policy: no-referrer
+Server: nginx
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Powered-By: Express
+X-Request-Id: final-header-remediation-evidence-001
+
+{"ok":true,"orderId":243,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"final-header-remediation-evidence-001"},"stock":{"sku":1,"inStock":true,"requestId":"final-header-remediation-evidence-001"},"requestId":"final-header-remediation-evidence-001"}

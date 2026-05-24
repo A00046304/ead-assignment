@@ -2,10 +2,17 @@ const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 const DELAY_MS = Number(process.env.DELAY_MS || 0);
 
 app.use(express.json({ limit: '50kb' }));
+
+const metrics = {
+  pricingRequestsTotal: 0,
+  pricingSuccessTotal: 0,
+  pricingErrorTotal: 0
+};
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -17,18 +24,71 @@ function getReqId(req) {
 
 app.use((req, res, next) => {
   const rid = getReqId(req);
+  const started = Date.now();
+
   req.requestId = rid;
   res.setHeader('X-Request-Id', rid);
-  console.log(`[rid=${rid}] ${req.method} ${req.path}`);
+
+  if (req.path !== '/health' && req.path !== '/prometheus') {
+    metrics.pricingRequestsTotal++;
+  }
+
+  res.on('finish', () => {
+    const isBusinessRequest = req.path !== '/health' && req.path !== '/prometheus';
+
+    if (isBusinessRequest) {
+      if (res.statusCode >= 200 && res.statusCode < 400) {
+        metrics.pricingSuccessTotal++;
+      } else {
+        metrics.pricingErrorTotal++;
+      }
+    }
+
+    console.log(JSON.stringify({
+      requestId: rid,
+      service: 'pricing-fn',
+      method: req.method,
+      path: req.path,
+      statusCode: res.statusCode,
+      durationMs: Date.now() - started,
+      outcome: res.statusCode >= 400 ? 'rejected' : 'success'
+    }));
+  });
+
   next();
 });
 
 app.get('/health', (req, res) => {
-  res.json({ ok: true, service: 'pricing-fn', requestId: req.requestId });
+  res.json({
+    ok: true,
+    service: 'pricing-fn',
+    delayMs: DELAY_MS,
+    requestId: req.requestId
+  });
+});
+
+app.get('/prometheus', (req, res) => {
+  res.set('Content-Type', 'text/plain; version=0.0.4');
+
+  res.send(`
+# HELP pricing_requests_total Total pricing business requests received
+# TYPE pricing_requests_total counter
+pricing_requests_total ${metrics.pricingRequestsTotal}
+
+# HELP pricing_success_total Successful pricing business requests
+# TYPE pricing_success_total counter
+pricing_success_total ${metrics.pricingSuccessTotal}
+
+# HELP pricing_error_total Pricing error responses
+# TYPE pricing_error_total counter
+pricing_error_total ${metrics.pricingErrorTotal}
+`.trim() + '\n');
 });
 
 app.post('/price', async (req, res) => {
-  if (DELAY_MS > 0) await sleep(DELAY_MS);
+  if (DELAY_MS > 0) {
+    await sleep(DELAY_MS);
+  }
 
   const { subtotal } = req.body;
   const s = Number(subtotal);

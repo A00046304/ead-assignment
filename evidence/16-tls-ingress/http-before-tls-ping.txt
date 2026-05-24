@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Content-Length: 11
+Content-Type: application/json
+Date: Thu, 21 May 2026 11:05:47 GMT
+Server: nginx
+
+{"ok":true}

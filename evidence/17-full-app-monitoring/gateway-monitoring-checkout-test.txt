@@ -1,0 +1,19 @@
+HTTP/2 200 
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-type: application/json; charset=utf-8
+cross-origin-embedder-policy: require-corp
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+date: Thu, 21 May 2026 16:33:28 GMT
+etag: W/"fd-wF4a0l/GNY+paNb1r8PPJY8Qacw"
+permissions-policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+referrer-policy: no-referrer
+server: nginx
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-powered-by: Express
+x-request-id: gateway-monitoring-test-001
+content-length: 253
+
+{"ok":true,"orderId":252,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"gateway-monitoring-test-001"},"stock":{"sku":1,"inStock":true,"requestId":"gateway-monitoring-test-001"},"requestId":"gateway-monitoring-test-001"}

@@ -1,0 +1,11 @@
+NAME                                                    READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+pod/ca2-grafana-6449c97655-fgzdz                        1/1     Running   0          6h17m   10.42.0.223   ead-server   <none>           <none>
+pod/ca2-prometheus-kube-state-metrics-88bd94fdb-mdqrr   1/1     Running   0          37s     10.42.0.227   ead-server   <none>           <none>
+pod/ca2-prometheus-prometheus-node-exporter-gnndr       1/1     Running   0          37s     10.0.2.15     ead-server   <none>           <none>
+pod/ca2-prometheus-server-65d784bf-nmx4l                2/2     Running   0          35s     10.42.0.228   ead-server   <none>           <none>
+
+NAME                                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/ca2-grafana                               ClusterIP   10.43.175.156   <none>        80/TCP     6h17m   app.kubernetes.io/instance=ca2-grafana,app.kubernetes.io/name=grafana
+service/ca2-prometheus-kube-state-metrics         ClusterIP   10.43.245.124   <none>        8080/TCP   37s     app.kubernetes.io/instance=ca2-prometheus,app.kubernetes.io/name=kube-state-metrics
+service/ca2-prometheus-prometheus-node-exporter   ClusterIP   10.43.182.76    <none>        9100/TCP   37s     app.kubernetes.io/instance=ca2-prometheus,app.kubernetes.io/name=prometheus-node-exporter
+service/ca2-prometheus-server                     ClusterIP   10.43.153.183   <none>        80/TCP     6h23m   app.kubernetes.io/component=server,app.kubernetes.io/instance=ca2-prometheus,app.kubernetes.io/name=prometheus

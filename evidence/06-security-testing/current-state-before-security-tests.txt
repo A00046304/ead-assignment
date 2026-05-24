@@ -1,0 +1,23 @@
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                     SELECTOR
+deployment.apps/checkout-fn    1/1     1            1           48d   checkout-fn    lab4/checkout-fn:v6-ca2    app=checkout-fn
+deployment.apps/gateway        1/1     1            1           48d   nginx          nginx:1.27-alpine          app=gateway
+deployment.apps/inventory-fn   1/1     1            1           48d   inventory-fn   lab4/inventory-fn:v3-ca2   app=inventory-fn
+deployment.apps/postgres       1/1     1            1           48d   postgres       postgres:15-alpine         app=postgres
+deployment.apps/pricing-fn     1/1     1            1           48d   pricing-fn     lab4/pricing-fn:v3-ca2     app=pricing-fn
+
+NAME                                READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+pod/checkout-fn-5ff5d97499-ddtsb    1/1     Running   0          4m3s    10.42.0.213   ead-server   <none>           <none>
+pod/gateway-9bf95c5cd-p2zkp         1/1     Running   0          4m3s    10.42.0.212   ead-server   <none>           <none>
+pod/inventory-fn-6bf864bbb9-z224s   1/1     Running   0          3m56s   10.42.0.215   ead-server   <none>           <none>
+pod/postgres-77c55d4877-67kkc       1/1     Running   0          3m56s   10.42.0.216   ead-server   <none>           <none>
+pod/pricing-fn-5985b4c78d-znv2f     1/1     Running   0          4m      10.42.0.214   ead-server   <none>           <none>
+
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/checkout-svc    ClusterIP   10.43.36.49     <none>        3003/TCP   48d   app=checkout-fn
+service/gateway-svc     ClusterIP   10.43.138.64    <none>        80/TCP     48d   app=gateway
+service/inventory-svc   ClusterIP   10.43.234.104   <none>        3002/TCP   48d   app=inventory-fn
+service/postgres-svc    ClusterIP   10.43.244.141   <none>        5432/TCP   48d   app=postgres
+service/pricing-svc     ClusterIP   10.43.162.133   <none>        3001/TCP   48d   app=pricing-fn
+
+NAME                                        CLASS     HOSTS   ADDRESS     PORTS   AGE
+ingress.networking.k8s.io/gateway-ingress   traefik   *       10.0.2.15   80      48d

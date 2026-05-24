@@ -1,0 +1,205 @@
+---- Trivy checkout summary ----
+│ usr/local/lib/node_modules/npm/node_modules/tinyglobby/node_modules/picomatch/p- │ node-pkg │        1        │    -    │
+│ ackage.json                                                                      │          │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/tinyglobby/package.json              │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/treeverse/package.json               │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/tuf-js/package.json                  │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/util-deprecate/package.json          │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/validate-npm-package-name/package.j- │ node-pkg │        0        │    -    │
+│ son                                                                              │          │                 │         │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/walk-up-path/package.json            │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/which/package.json                   │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/write-file-atomic/package.json       │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/node_modules/yallist/package.json                 │ node-pkg │        0        │    -    │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┼─────────┤
+│ usr/local/lib/node_modules/npm/package.json                                      │ node-pkg │        0        │    -    │
+└──────────────────────────────────────────────────────────────────────────────────┴──────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+Node.js (node-pkg)
+==================
+Total: 1 (HIGH: 1, CRITICAL: 0)
+
+┌──────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬─────────────────────┬────────────────────────────────────────────────────────────┐
+│         Library          │ Vulnerability  │ Severity │ Status │ Installed Version │    Fixed Version    │                           Title                            │
+├──────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼─────────────────────┼────────────────────────────────────────────────────────────┤
+│ picomatch (package.json) │ CVE-2026-33671 │ HIGH     │ fixed  │ 4.0.3             │ 4.0.4, 3.0.2, 2.3.2 │ picomatch: Picomatch: Regular Expression Denial of Service │
+│                          │                │          │        │                   │                     │ via crafted extglob patterns                               │
+│                          │                │          │        │                   │                     │ https://avd.aquasec.com/nvd/cve-2026-33671                 │
+└──────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴─────────────────────┴────────────────────────────────────────────────────────────┘
+
+---- Checkov summary lines ----
+Passed checks: 481, Failed checks: 74, Skipped checks: 0
+Check: CKV_K8S_70: "Ensure that the --token-auth-file argument is not set"
+Check: CKV_K8S_99: "Ensure that the --etcd-certfile and --etcd-keyfile arguments are set as appropriate"
+Check: CKV_K8S_73: "Ensure that the --kubelet-certificate-authority argument is set as appropriate"
+Check: CKV_K8S_96: "Ensure that the --service-account-lookup argument is set to true"
+Check: CKV_K8S_117: "Ensure that the --client-cert-auth argument is set to true"
+Check: CKV_K8S_68: "Ensure that the --anonymous-auth argument is set to false"
+Check: CKV_K8S_145: "Ensure that the --make-iptables-util-chains argument is set to true"
+Check: CKV_K8S_16: "Container should not be privileged"
+Check: CKV_K8S_119: "Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate"
+Check: CKV_K8S_110: "Ensure that the --service-account-private-key-file argument is set as appropriate"
+Check: CKV_K8S_14: "Image Tag should be fixed - not latest or blank"
+Check: CKV_K8S_83: "Ensure that the admission control plugin NamespaceLifecycle is set"
+Check: CKV_K8S_107: "Ensure that the --profiling argument is set to false"
+Check: CKV_K8S_72: "Ensure that the --kubelet-client-certificate and --kubelet-client-key arguments are set as appropriate"
+Check: CKV_K8S_74: "Ensure that the --authorization-mode argument is not set to AlwaysAllow"
+Check: CKV_K8S_29: "Apply security context to your pods and containers"
+Check: CKV_K8S_35: "Prefer using secrets as files over secrets as environment variables"
+Check: CKV_K8S_104: "Ensure that encryption providers are appropriately configured"
+Check: CKV_K8S_138: "Ensure that the --anonymous-auth argument is set to false"
+Check: CKV_K8S_81: "Ensure that the admission control plugin SecurityContextDeny is set if PodSecurityPolicy is not used"
+Check: CKV_K8S_28: "Minimize the admission of containers with the NET_RAW capability"
+Check: CKV_K8S_116: "Ensure that the --cert-file and --key-file arguments are set as appropriate"
+Check: CKV_K8S_151: "Ensure that the Kubelet only makes use of Strong Cryptographic Ciphers"
+Check: CKV_K8S_71: "Ensure that the --kubelet-https argument is set to true"
+Check: CKV_K8S_33: "Ensure the Kubernetes dashboard is not deployed"
+Check: CKV_K8S_114: "Ensure that the --profiling argument is set to false"
+Check: CKV_K8S_25: "Minimize the admission of containers with added capability"
+Check: CKV_K8S_23: "Minimize the admission of root containers"
+Check: CKV_K8S_31: "Ensure that the seccomp profile is set to docker/default or runtime/default"
+Check: CKV_K8S_86: "Ensure that the --insecure-bind-address argument is not set"
+Check: CKV_K8S_143: "Ensure that the --streaming-connection-idle-timeout argument is not set to 0"
+Check: CKV_K8S_144: "Ensure that the --protect-kernel-defaults argument is set to true"
+Check: CKV_K8S_113: "Ensure that the --bind-address argument is set to 127.0.0.1"
+Check: CKV_K8S_93: "Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate"
+Check: CKV_K8S_90: "Ensure that the --profiling argument is set to false"
+Check: CKV_K8S_149: "Ensure that the --rotate-certificates argument is not set to false"
+Check: CKV_K8S_146: "Ensure that the --hostname-override argument is not set"
+Check: CKV_K8S_139: "Ensure that the --authorization-mode argument is not set to AlwaysAllow"
+Check: CKV_K8S_12: "Memory requests should be set"
+Check: CKV_K8S_80: "Ensure that the admission control plugin AlwaysPullImages is set"
+Check: CKV_K8S_141: "Ensure that the --read-only-port argument is set to 0"
+Check: CKV_K8S_79: "Ensure that the admission control plugin AlwaysAdmit is not set"
+Check: CKV_K8S_111: "Ensure that the --root-ca-file argument is set as appropriate"
+Check: CKV_K8S_88: "Ensure that the --insecure-port argument is set to 0"
+Check: CKV_K8S_89: "Ensure that the --secure-port argument is not set to 0"
+Check: CKV_K8S_8: "Liveness Probe Should be Configured"
+Check: CKV_K8S_115: "Ensure that the --bind-address argument is set to 127.0.0.1"
+Check: CKV_K8S_11: "CPU limits should be set"
+Check: CKV_K8S_18: "Containers should not share the host IPC namespace"
+Check: CKV_K8S_84: "Ensure that the admission control plugin PodSecurityPolicy is set"
+Check: CKV_K8S_38: "Ensure that Service Account Tokens are only mounted where necessary"
+Check: CKV_K8S_102: "Ensure that the --etcd-cafile argument is set as appropriate"
+Check: CKV_K8S_34: "Ensure that Tiller (Helm v2) is not deployed"
+Check: CKV_K8S_82: "Ensure that the admission control plugin ServiceAccount is set"
+Check: CKV_K8S_77: "Ensure that the --authorization-mode argument includes RBAC"
+Check: CKV_K8S_147: "Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture"
+Check: CKV_K8S_69: "Ensure that the --basic-auth-file argument is not set"
+Check: CKV_K8S_39: "Do not use the CAP_SYS_ADMIN linux capability"
+Check: CKV_K8S_26: "Do not specify hostPort unless absolutely necessary"
+Check: CKV_K8S_13: "Memory limits should be set"
+Check: CKV_K8S_148: "Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate"
+Check: CKV_K8S_37: "Minimize the admission of containers with capabilities assigned"
+Check: CKV_K8S_95: "Ensure that the --request-timeout argument is set as appropriate"
+Check: CKV_K8S_20: "Containers should not run with allowPrivilegeEscalation"
+Check: CKV_K8S_92: "Ensure that the --audit-log-maxage argument is set to 30 or as appropriate"
+Check: CKV_K8S_9: "Readiness Probe Should be Configured"
+Check: CKV_K8S_30: "Apply security context to your containers"
+Check: CKV_K8S_118: "Ensure that the --auto-tls argument is not set to true"
+Check: CKV_K8S_94: "Ensure that the --audit-log-maxsize argument is set to 100 or as appropriate"
+Check: CKV_K8S_106: "Ensure that the --terminated-pod-gc-threshold argument is set as appropriate"
+Check: CKV_K8S_10: "CPU requests should be set"
+Check: CKV_K8S_91: "Ensure that the --audit-log-path argument is set"
+Check: CKV_K8S_75: "Ensure that the --authorization-mode argument includes Node"
+Check: CKV_K8S_105: "Ensure that the API Server only makes use of Strong Cryptographic Ciphers"
+Check: CKV_K8S_27: "Do not expose the docker daemon socket to containers"
+Check: CKV_K8S_159: "Limit the use of git-sync to prevent code injection"
+Check: CKV_K8S_17: "Containers should not share the host process ID namespace"
+Check: CKV_K8S_97: "Ensure that the --service-account-key-file argument is set as appropriate"
+Check: CKV_K8S_112: "Ensure that the RotateKubeletServerCertificate argument is set to true"
+
+---- ZAP warnings summary ----
+# ZAP Scanning Report
+
+ZAP by [Checkmarx](https://checkmarx.com/).
+
+
+## Summary of Alerts
+
+| Risk Level | Number of Alerts |
+| --- | --- |
+| High | 0 |
+| Medium | 2 |
+| Low | 7 |
+| Informational | 2 |
+
+
+
+
+## Insights
+
+| Level | Reason | Site | Description | Statistic |
+| --- | --- | --- | --- | --- |
+| Info | Informational | http://localhost | Percentage of responses with status code 2xx | 50 % |
+| Info | Informational | http://localhost | Percentage of responses with status code 4xx | 50 % |
+| Info | Informational | http://localhost | Percentage of endpoints with content type text/html | 100 % |
+| Info | Informational | http://localhost | Percentage of endpoints with method GET | 100 % |
+| Info | Informational | http://localhost | Count of total endpoints | 3    |
+
+
+
+
+## Alerts
+
+| Name | Risk Level | Number of Instances |
+| --- | --- | --- |
+| Content Security Policy (CSP) Header Not Set | Medium | 3 |
+| Sub Resource Integrity Attribute Missing | Medium | 2 |
+| Cross-Domain JavaScript Source File Inclusion | Low | 1 |
+| Cross-Origin-Embedder-Policy Header Missing or Invalid | Low | 1 |
+| Cross-Origin-Opener-Policy Header Missing or Invalid | Low | 1 |
+| Cross-Origin-Resource-Policy Header Missing or Invalid | Low | 1 |
+| In Page Banner Information Leak | Low | 2 |
+| Permissions Policy Header Not Set | Low | 3 |
+| Server Leaks Version Information via "Server" HTTP Response Header Field | Low | 3 |
+| Modern Web Application | Informational | 1 |
+| Non-Storable Content | Informational | 3 |
+
+
+
+
+## Alert Detail
+
+
+
+### [ Content Security Policy (CSP) Header Not Set ](https://www.zaproxy.org/docs/alerts/10038/)
+
+
+
+##### Medium (High)
+
+### Description
+
+Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
+
+* URL: http://localhost/
+  * Node Name: `http://localhost/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost/robots.txt
+  * Node Name: `http://localhost/robots.txt`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost/sitemap.xml
+  * Node Name: `http://localhost/sitemap.xml`
+  * Method: `GET`

@@ -1,0 +1,46 @@
+apiVersion: v1
+data:
+  default.conf: |
+    server {
+        listen 80;
+
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header Referrer-Policy "no-referrer" always;
+        add_header Cache-Control "no-store" always;
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+
+        location = /api/arch {
+            default_type application/json;
+            add_header Cache-Control "no-store";
+            return 200 '{"arch":"nanoservices-kubernetes","component":"nginx-configmap"}';
+        }
+
+        location = /api/ping {
+            default_type application/json;
+            add_header Cache-Control "no-store";
+            return 200 '{"ok":true}';
+        }
+
+        location = /api/checkout {
+            proxy_http_version 1.1;
+            proxy_set_header Host localhost;
+            proxy_set_header Connection "";
+            proxy_set_header X-Request-Id $http_x_request_id;
+            proxy_pass http://checkout-svc:3003/api/checkout;
+        }
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"default.conf":"server {\n    listen 80;\n\n    add_header X-Content-Type-Options \"nosniff\" always;\n    add_header X-Frame-Options \"DENY\" always;\n    add_header Referrer-Policy \"no-referrer\" always;\n    add_header Cache-Control \"no-store\" always;\n\n    location / {\n        root /usr/share/nginx/html;\n        index index.html;\n    }\n\n    location = /api/arch {\n        default_type application/json;\n        add_header Cache-Control \"no-store\";\n        return 200 '{\"arch\":\"nanoservices-kubernetes\",\"component\":\"nginx-configmap\"}';\n    }\n\n    location = /api/ping {\n        default_type application/json;\n        add_header Cache-Control \"no-store\";\n        return 200 '{\"ok\":true}';\n    }\n\n    location = /api/checkout {\n        proxy_http_version 1.1;\n        proxy_set_header Host localhost;\n        proxy_set_header Connection \"\";\n        proxy_set_header X-Request-Id $http_x_request_id;\n        proxy_pass http://checkout-svc:3003/api/checkout;\n    }\n}\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"lab4-nginx-conf","namespace":"lab4"}}
+  creationTimestamp: "2026-04-01T19:31:00Z"
+  name: lab4-nginx-conf
+  namespace: lab4
+  resourceVersion: "170342"
+  uid: 0dd9ca78-3e11-40b7-a56f-677631e19e83

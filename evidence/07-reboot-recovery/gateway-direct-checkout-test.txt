@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Content-Length: 265
+Content-Type: application/json; charset=utf-8
+Date: Wed, 20 May 2026 15:49:37 GMT
+Etag: W/"109-mLv/lijuXD/eRTInR5cGY4B2gwI"
+Referrer-Policy: no-referrer
+Server: nginx/1.27.5
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Powered-By: Express
+X-Request-Id: gateway-direct-fix-evidence-001
+
+{"ok":true,"orderId":239,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"gateway-direct-fix-evidence-001"},"stock":{"sku":1,"inStock":true,"requestId":"gateway-direct-fix-evidence-001"},"requestId":"gateway-direct-fix-evidence-001"}

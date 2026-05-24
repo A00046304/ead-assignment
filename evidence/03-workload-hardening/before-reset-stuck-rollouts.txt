@@ -1,0 +1,56 @@
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                 SELECTOR
+deployment.apps/checkout-fn    0/0     0            0           47d   checkout-fn    lab4/checkout-fn:v5    app=checkout-fn
+deployment.apps/gateway        0/1     1            0           47d   nginx          nginx:1.27-alpine      app=gateway
+deployment.apps/inventory-fn   1/2     1            1           47d   inventory-fn   lab4/inventory-fn:v2   app=inventory-fn
+deployment.apps/postgres       0/1     1            0           47d   postgres       postgres:15-alpine     app=postgres
+deployment.apps/pricing-fn     0/1     1            0           47d   pricing-fn     lab4/pricing-fn:v2     app=pricing-fn
+
+NAME                                      DESIRED   CURRENT   READY   AGE     CONTAINERS     IMAGES                     SELECTOR
+replicaset.apps/checkout-fn-54648c4dc5    0         0         0       47d     checkout-fn    lab4/checkout-fn:v4        app=checkout-fn,pod-template-hash=54648c4dc5
+replicaset.apps/checkout-fn-64b6c68c65    0         0         0       46d     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=64b6c68c65
+replicaset.apps/checkout-fn-74f554d445    0         0         0       4m22s   checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=74f554d445
+replicaset.apps/checkout-fn-765c69877d    0         0         0       47d     checkout-fn    lab4/checkout-fn:v4        app=checkout-fn,pod-template-hash=765c69877d
+replicaset.apps/checkout-fn-794cddc75     0         0         0       18m     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=794cddc75
+replicaset.apps/checkout-fn-7d458c88b8    0         0         0       46d     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=7d458c88b8
+replicaset.apps/checkout-fn-7d7c5874d     0         0         0       24m     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=7d7c5874d
+replicaset.apps/checkout-fn-7fffd4c98f    0         0         0       46d     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=7fffd4c98f
+replicaset.apps/checkout-fn-b6d4588d8     0         0         0       46d     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=b6d4588d8
+replicaset.apps/checkout-fn-b9f9bb5b8     0         0         0       46d     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=b9f9bb5b8
+replicaset.apps/checkout-fn-fbfc7b6d5     0         0         0       18m     checkout-fn    lab4/checkout-fn:v5        app=checkout-fn,pod-template-hash=fbfc7b6d5
+replicaset.apps/gateway-547f5b98f6        0         0         0       46d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=547f5b98f6
+replicaset.apps/gateway-58c4ff66b9        1         1         0       4m21s   nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=58c4ff66b9
+replicaset.apps/gateway-5d668fdb9b        0         0         0       47d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=5d668fdb9b
+replicaset.apps/gateway-6b7fc8c5b         0         0         0       46d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=6b7fc8c5b
+replicaset.apps/gateway-79444ff655        0         0         0       47d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=79444ff655
+replicaset.apps/gateway-7c887688d6        0         0         0       46d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=7c887688d6
+replicaset.apps/gateway-7db957c776        0         0         0       47d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=7db957c776
+replicaset.apps/gateway-7f74ff979         0         0         0       46d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=7f74ff979
+replicaset.apps/gateway-8695d9697c        0         0         0       47d     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=8695d9697c
+replicaset.apps/gateway-8b9c47df7         0         0         0       24m     nginx          nginx:1.27-alpine          app=gateway,pod-template-hash=8b9c47df7
+replicaset.apps/inventory-fn-5754b4d4cd   0         0         0       18m     inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=5754b4d4cd
+replicaset.apps/inventory-fn-6548d85c6d   1         1         1       47d     inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=6548d85c6d
+replicaset.apps/inventory-fn-65dd5d74f9   0         0         0       47d     inventory-fn   lab4/inventory-fn:v1       app=inventory-fn,pod-template-hash=65dd5d74f9
+replicaset.apps/inventory-fn-67fbc566fc   0         0         0       47d     inventory-fn   lab4/inventory-fn:broken   app=inventory-fn,pod-template-hash=67fbc566fc
+replicaset.apps/inventory-fn-6fdcbd64b4   0         0         0       18m     inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=6fdcbd64b4
+replicaset.apps/inventory-fn-774c87f745   0         0         0       24m     inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=774c87f745
+replicaset.apps/inventory-fn-78544d5d78   0         0         0       47d     inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=78544d5d78
+replicaset.apps/inventory-fn-d4db7bf96    1         1         0       4m23s   inventory-fn   lab4/inventory-fn:v2       app=inventory-fn,pod-template-hash=d4db7bf96
+replicaset.apps/postgres-58457f4b49       1         1         0       4m21s   postgres       postgres:15-alpine         app=postgres,pod-template-hash=58457f4b49
+replicaset.apps/postgres-6f6874d8cd       0         0         0       24m     postgres       postgres:15-alpine         app=postgres,pod-template-hash=6f6874d8cd
+replicaset.apps/postgres-9b66bc598        0         0         0       47d     postgres       postgres:15-alpine         app=postgres,pod-template-hash=9b66bc598
+replicaset.apps/pricing-fn-595cf554d7     0         0         0       47d     pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=595cf554d7
+replicaset.apps/pricing-fn-5c5c5fbf9c     0         0         0       24m     pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=5c5c5fbf9c
+replicaset.apps/pricing-fn-6b8d69995d     0         0         0       18m     pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=6b8d69995d
+replicaset.apps/pricing-fn-6d5bff8f5d     0         0         0       4m23s   pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=6d5bff8f5d
+replicaset.apps/pricing-fn-746bfbcdf4     0         0         0       18m     pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=746bfbcdf4
+replicaset.apps/pricing-fn-7fcd8f6dcb     0         0         0       47d     pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=7fcd8f6dcb
+replicaset.apps/pricing-fn-854544ddd6     0         0         0       47d     pricing-fn     lab4/pricing-fn:v1         app=pricing-fn,pod-template-hash=854544ddd6
+replicaset.apps/pricing-fn-c67ff969b      1         1         0       4m18s   pricing-fn     lab4/pricing-fn:v2         app=pricing-fn,pod-template-hash=c67ff969b
+
+NAME                                READY   STATUS    RESTARTS      AGE     IP           NODE         NOMINATED NODE   READINESS GATES
+pod/gateway-58c4ff66b9-5hsrd        0/1     Pending   0             4m21s   <none>       <none>       <none>           <none>
+pod/inventory-fn-6548d85c6d-27gz2   1/1     Running   6 (46m ago)   45d     10.42.0.81   ead-server   <none>           <none>
+pod/inventory-fn-d4db7bf96-6gskw    0/1     Pending   0             4m23s   <none>       <none>       <none>           <none>
+pod/postgres-58457f4b49-w2gr9       0/1     Pending   0             4m21s   <none>       <none>       <none>           <none>
+pod/pricing-fn-c67ff969b-2jtgj      0/1     Pending   0             4m17s   <none>       <none>       <none>           <none>
+pod/toolbox                         1/1     Running   0             24m     10.42.0.93   ead-server   <none>           <none>

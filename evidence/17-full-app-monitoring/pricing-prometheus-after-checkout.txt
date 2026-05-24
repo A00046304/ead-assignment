@@ -1,0 +1,11 @@
+# HELP pricing_requests_total Total pricing business requests received
+# TYPE pricing_requests_total counter
+pricing_requests_total 1
+
+# HELP pricing_success_total Successful pricing business requests
+# TYPE pricing_success_total counter
+pricing_success_total 1
+
+# HELP pricing_error_total Pricing error responses
+# TYPE pricing_error_total counter
+pricing_error_total 0

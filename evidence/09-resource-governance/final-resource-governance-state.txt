@@ -1,0 +1,19 @@
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                     SELECTOR
+deployment.apps/checkout-fn    1/1     1            1           48d   checkout-fn    lab4/checkout-fn:v6-ca2    app=checkout-fn
+deployment.apps/gateway        1/1     1            1           48d   nginx          nginx:1.27-alpine          app=gateway
+deployment.apps/inventory-fn   1/1     1            1           48d   inventory-fn   lab4/inventory-fn:v3-ca2   app=inventory-fn
+deployment.apps/postgres       1/1     1            1           48d   postgres       postgres:15-alpine         app=postgres
+deployment.apps/pricing-fn     1/1     1            1           48d   pricing-fn     lab4/pricing-fn:v3-ca2     app=pricing-fn
+
+NAME                                READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+pod/checkout-fn-5ff5d97499-ddtsb    1/1     Running   0          3m47s   10.42.0.213   ead-server   <none>           <none>
+pod/gateway-9bf95c5cd-p2zkp         1/1     Running   0          3m47s   10.42.0.212   ead-server   <none>           <none>
+pod/inventory-fn-6bf864bbb9-z224s   1/1     Running   0          3m40s   10.42.0.215   ead-server   <none>           <none>
+pod/postgres-77c55d4877-67kkc       1/1     Running   0          3m40s   10.42.0.216   ead-server   <none>           <none>
+pod/pricing-fn-5985b4c78d-znv2f     1/1     Running   0          3m44s   10.42.0.214   ead-server   <none>           <none>
+
+NAME                                REQUEST                                                        LIMIT                                            AGE
+resourcequota/lab4-resource-quota   pods: 5/15, requests.cpu: 225m/1, requests.memory: 544Mi/1Gi   limits.cpu: 1400m/2, limits.memory: 1152Mi/2Gi   3m50s
+
+NAME                                       CREATED AT
+limitrange/lab4-default-container-limits   2026-05-20T17:42:51Z

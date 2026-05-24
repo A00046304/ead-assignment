@@ -1,0 +1,23 @@
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                            SELECTOR
+deployment.apps/checkout-fn    1/1     1            1           49d   checkout-fn    lab4/checkout-fn:v7-prometheus    app=checkout-fn
+deployment.apps/gateway        1/1     1            1           49d   nginx          nginx:1.27-alpine                 app=gateway
+deployment.apps/inventory-fn   1/1     1            1           49d   inventory-fn   lab4/inventory-fn:v4-prometheus   app=inventory-fn
+deployment.apps/postgres       1/1     1            1           49d   postgres       postgres:15-alpine                app=postgres
+deployment.apps/pricing-fn     1/1     1            1           49d   pricing-fn     lab4/pricing-fn:v4-prometheus     app=pricing-fn
+
+NAME                                READY   STATUS    RESTARTS      AGE    IP            NODE         NOMINATED NODE   READINESS GATES
+pod/checkout-fn-8844c9767-vj8h9     1/1     Running   2 (79m ago)   7h3m   10.42.0.221   ead-server   <none>           <none>
+pod/gateway-7b897f8f76-8cvjm        1/1     Running   0             34m    10.42.0.226   ead-server   <none>           <none>
+pod/inventory-fn-8584fdd6d8-6tq66   1/1     Running   0             41m    10.42.0.225   ead-server   <none>           <none>
+pod/postgres-77c55d4877-67kkc       1/1     Running   4 (77m ago)   23h    10.42.0.216   ead-server   <none>           <none>
+pod/pricing-fn-8448d9fbd5-wccvh     1/1     Running   3 (50m ago)   54m    10.42.0.224   ead-server   <none>           <none>
+
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/checkout-svc    ClusterIP   10.43.36.49     <none>        3003/TCP   49d   app=checkout-fn
+service/gateway-svc     ClusterIP   10.43.138.64    <none>        80/TCP     49d   app=gateway
+service/inventory-svc   ClusterIP   10.43.234.104   <none>        3002/TCP   49d   app=inventory-fn
+service/postgres-svc    ClusterIP   10.43.244.141   <none>        5432/TCP   49d   app=postgres
+service/pricing-svc     ClusterIP   10.43.162.133   <none>        3001/TCP   49d   app=pricing-fn
+
+NAME                                        CLASS     HOSTS   ADDRESS     PORTS     AGE
+ingress.networking.k8s.io/gateway-ingress   traefik   *       10.0.2.15   80, 443   49d

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pricing-fn
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pricing-fn
@@ -12,10 +12,30 @@ spec:
       labels:
         app: pricing-fn
     spec:
+      serviceAccountName: pricing-sa
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: pricing-fn
           image: lab4/pricing-fn:v2
           imagePullPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 150m
+              memory: 64Mi
           ports:
             - containerPort: 3001
           readinessProbe:
@@ -56,10 +76,30 @@ spec:
       labels:
         app: inventory-fn
     spec:
+      serviceAccountName: inventory-sa
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: inventory-fn
           image: lab4/inventory-fn:v2
           imagePullPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 150m
+              memory: 64Mi
           ports:
             - containerPort: 3002
           readinessProbe:
@@ -100,10 +140,30 @@ spec:
       labels:
         app: checkout-fn
     spec:
+      serviceAccountName: checkout-sa
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: checkout-fn
           image: lab4/checkout-fn:v5
           imagePullPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 150m
+              memory: 64Mi
           ports:
             - containerPort: 3003
           env:

@@ -1,0 +1,1 @@
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"checkout_dependency_timeout_total","instance":"checkout-svc.lab4.svc.cluster.local:3003","job":"checkout-fn"},"value":[1779358587.785,"0"]}]}}

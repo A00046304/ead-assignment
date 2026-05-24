@@ -1,0 +1,4 @@
+wget: can't connect to remote host (10.43.162.133): Connection refused
+command terminated with exit code 1
+Blocked client exit code: 1
+Expected result: denied-client could not reach pricing-svc.

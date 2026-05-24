@@ -1,0 +1,8 @@
+HTTP/1.1 502 Bad Gateway
+Content-Type: text/plain; charset=utf-8
+Date: Wed, 20 May 2026 12:21:27 GMT
+Server: nginx/1.27.5
+X-Keda-Http-Cold-Start: false
+Transfer-Encoding: chunked
+
+Bad Gateway

@@ -1,0 +1,10 @@
+NAME                                             POD-SELECTOR       AGE
+checkout-ingress-from-gateway                    app=checkout-fn    45m
+checkout-ingress-from-gateway-and-prometheus     app=checkout-fn    11s
+gateway-allow-ingress                            app=gateway        45m
+gateway-allow-ingress-and-monitoring             app=gateway        11s
+inventory-ingress-from-checkout                  app=inventory-fn   45m
+inventory-ingress-from-checkout-and-prometheus   app=inventory-fn   11s
+postgres-ingress-from-checkout                   app=postgres       45m
+pricing-ingress-from-checkout                    app=pricing-fn     45m
+pricing-ingress-from-checkout-and-prometheus     app=pricing-fn     11s

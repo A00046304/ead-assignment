@@ -1,0 +1,19 @@
+HTTP/2 200 
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-type: application/json; charset=utf-8
+cross-origin-embedder-policy: require-corp
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+date: Thu, 21 May 2026 11:13:08 GMT
+etag: W/"100-t20XwCgBSv/HQRbml/t8MzT7Kdg"
+permissions-policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+referrer-policy: no-referrer
+server: nginx
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-powered-by: Express
+x-request-id: final-tls-clean-checkout-001
+content-length: 256
+
+{"ok":true,"orderId":249,"sku":1,"price":{"subtotal":100,"taxRate":0.23,"tax":23,"total":123,"requestId":"final-tls-clean-checkout-001"},"stock":{"sku":1,"inStock":true,"requestId":"final-tls-clean-checkout-001"},"requestId":"final-tls-clean-checkout-001"}

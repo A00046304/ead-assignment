@@ -1,0 +1,74 @@
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "19"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"checkout-fn","namespace":"lab4"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"checkout-fn"}},"template":{"metadata":{"labels":{"app":"checkout-fn"}},"spec":{"automountServiceAccountToken":false,"containers":[{"env":[{"name":"PRICING_URL","value":"http://pricing-svc:3001"},{"name":"INVENTORY_URL","value":"http://inventory-svc:3002"},{"name":"TIMEOUT_MS","value":"1500"},{"name":"DB_HOST","value":"postgres-svc"},{"name":"DB_PORT","value":"5432"},{"name":"DB_NAME","valueFrom":{"secretKeyRef":{"key":"POSTGRES_DB","name":"postgres-secret"}}},{"name":"DB_USER","valueFrom":{"secretKeyRef":{"key":"POSTGRES_USER","name":"postgres-secret"}}},{"name":"DB_PASSWORD","valueFrom":{"secretKeyRef":{"key":"POSTGRES_PASSWORD","name":"postgres-secret"}}}],"image":"lab4/checkout-fn:v5","imagePullPolicy":"Never","livenessProbe":{"httpGet":{"path":"/health","port":3003},"initialDelaySeconds":30,"periodSeconds":10},"name":"checkout-fn","ports":[{"containerPort":3003}],"readinessProbe":{"httpGet":{"path":"/health","port":3003},"initialDelaySeconds":10,"periodSeconds":5},"resources":{"limits":{"cpu":"150m","memory":"64Mi"},"requests":{"cpu":"10m","memory":"32Mi"}},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}}],"securityContext":{"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccountName":"checkout-sa"}}}}
+  creationTimestamp: "2026-04-01T19:36:37Z"
+  generation: 155
+  name: checkout-fn
+  namespace: lab4
+  resourceVersion: "170699"
+  uid: c1bd1976-df18-47a7-8d8c-4b2899e58017
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: checkout-fn
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2026-05-20T15:29:35Z"
+      labels:
+        app: checkout-fn
+    spec:
+--
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsGroup: 1000
+          runAsNonRoot: true
+          runAsUser: 1000
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      serviceAccount: checkout-sa
+      serviceAccountName: checkout-sa
+      terminationGracePeriodSeconds: 30
+status:
+  conditions:
+  - lastTransitionTime: "2026-05-19T19:13:24Z"
+    lastUpdateTime: "2026-05-19T19:13:24Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-04-01T19:36:38Z"
+    lastUpdateTime: "2026-05-20T15:29:51Z"
+    message: ReplicaSet "checkout-fn-577bcdf867" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 155
+  replicas: 1
+  unavailableReplicas: 1
+  updatedReplicas: 1

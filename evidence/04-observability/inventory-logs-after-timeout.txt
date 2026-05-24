@@ -1,0 +1,6 @@
+
+> inventory-fn@1.0.0 start
+> node app.js
+
+inventory-fn on 3002
+{"requestId":"e4a4d8f8-0bc6-45c2-8921-0bf9ddc39c46","service":"inventory-fn","method":"GET","path":"/health","statusCode":200,"durationMs":8,"outcome":"success"}

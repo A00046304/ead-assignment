@@ -1,0 +1,1 @@
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"pricing_requests_total","instance":"pricing-svc.lab4.svc.cluster.local:3001","job":"pricing-fn"},"value":[1779381643.762,"4"]}]}}

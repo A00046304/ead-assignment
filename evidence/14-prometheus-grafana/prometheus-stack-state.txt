@@ -1,0 +1,5 @@
+NAME                                         READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+pod/ca2-prometheus-server-775cb9b45c-plpsk   2/2     Running   0          5m26s   10.42.0.222   ead-server   <none>           <none>
+
+NAME                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE     SELECTOR
+service/ca2-prometheus-server   ClusterIP   10.43.153.183   <none>        80/TCP    5m26s   app.kubernetes.io/component=server,app.kubernetes.io/instance=ca2-prometheus,app.kubernetes.io/name=prometheus

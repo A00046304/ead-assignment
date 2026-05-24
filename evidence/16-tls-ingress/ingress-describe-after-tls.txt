@@ -1,0 +1,15 @@
+Name:             gateway-ingress
+Labels:           <none>
+Namespace:        lab4
+Address:          10.0.2.15
+Ingress Class:    traefik
+Default backend:  <default>
+TLS:
+  ca2-ingress-tls terminates localhost
+Rules:
+  Host        Path  Backends
+  ----        ----  --------
+  *           
+              /   gateway-svc:80 (10.42.0.217:80)
+Annotations:  <none>
+Events:       <none>

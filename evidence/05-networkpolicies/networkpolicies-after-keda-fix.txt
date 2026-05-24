@@ -1,0 +1,5 @@
+NAME                              POD-SELECTOR       AGE
+checkout-ingress-from-gateway     app=checkout-fn    2m49s
+inventory-ingress-from-checkout   app=inventory-fn   2m49s
+postgres-ingress-from-checkout    app=postgres       2m49s
+pricing-ingress-from-checkout     app=pricing-fn     2m49s

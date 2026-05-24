@@ -1,0 +1,84 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: checkout-ingress-from-gateway
+spec:
+  podSelector:
+    matchLabels:
+      app: checkout-fn
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: gateway
+        - ipBlock:
+            cidr: 10.0.2.15/32
+      ports:
+        - protocol: TCP
+          port: 3003
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: pricing-ingress-from-checkout
+spec:
+  podSelector:
+    matchLabels:
+      app: pricing-fn
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: checkout-fn
+        - ipBlock:
+            cidr: 10.0.2.15/32
+      ports:
+        - protocol: TCP
+          port: 3001
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: inventory-ingress-from-checkout
+spec:
+  podSelector:
+    matchLabels:
+      app: inventory-fn
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: checkout-fn
+        - ipBlock:
+            cidr: 10.0.2.15/32
+      ports:
+        - protocol: TCP
+          port: 3002
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-ingress-from-checkout
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: checkout-fn
+        - podSelector:
+            matchLabels:
+              app: toolbox
+      ports:
+        - protocol: TCP
+          port: 5432

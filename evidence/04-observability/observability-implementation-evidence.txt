@@ -1,0 +1,37 @@
+---- Pods after observability update ----
+NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+checkout-fn-564675c958-rblv9    1/1     Running   0          3m16s   10.42.0.141   ead-server   <none>           <none>
+gateway-649975df48-dccj9        1/1     Running   0          17m     10.42.0.139   ead-server   <none>           <none>
+inventory-fn-5f5575c6ff-754f7   1/1     Running   0          3m13s   10.42.0.143   ead-server   <none>           <none>
+postgres-5dfdc9df44-sdx9j       1/1     Running   0          17m     10.42.0.135   ead-server   <none>           <none>
+pricing-fn-6cf8fc5f59-654sq     1/1     Running   0          3m16s   10.42.0.142   ead-server   <none>           <none>
+toolbox                         0/1     Unknown   0          17h     <none>        ead-server   <none>           <none>
+
+---- Images now used ----
+lab4/checkout-fn:v6-ca2
+lab4/pricing-fn:v3-ca2
+lab4/inventory-fn:v3-ca2
+
+---- Metrics endpoint present in source ----
+36:const metrics = {
+44:  dependencyTimeoutTotal: 0,
+45:  databaseWriteFailureTotal: 0,
+49:function updateLastRequest(req, statusCode, durationMs, outcome, reason) {
+50:  metrics.lastRequest = {
+55:    durationMs,
+74:    const durationMs = Date.now() - started;
+86:      durationMs,
+128:// Internal metrics endpoint. This is not exposed through the public gateway.
+129:app.get('/metrics', (req, res) => {
+130:  res.json(metrics);
+135:  metrics.checkoutRequestsTotal += 1;
+142:    metrics.badRequestTotal += 1;
+148:    metrics.badRequestTotal += 1;
+177:      metrics.dependencyFailureTotal += 1;
+184:      metrics.dependencyFailureTotal += 1;
+193:      metrics.outOfStockTotal += 1;
+214:      metrics.databaseWriteFailureTotal += 1;
+225:    metrics.checkoutSuccessTotal += 1;
+240:      metrics.dependencyTimeoutTotal += 1;
+242:      metrics.dependencyFailureTotal += 1;
+250:      durationMs: Date.now() - started,

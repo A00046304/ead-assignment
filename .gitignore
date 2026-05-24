@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Logs and temp files
+*.log
+tmp/
+.temp/
+
+# Local environment / credentials
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.p12
+kubeconfig*
+
+# Do not commit real Kubernetes Secret manifests
+*secret*.yaml
+*secrets*.yaml
+
+# Terraform local state
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# CA2 private evidence / secrets
+evidence/01-secrets/
+evidence/16-tls-ingress/tls-secret-created.txt
+*secret*.yaml
+*secrets*.yaml
+*.key
+*.pem
+.env
+.env.*

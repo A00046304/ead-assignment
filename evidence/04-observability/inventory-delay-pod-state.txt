@@ -1,0 +1,2 @@
+NAME                            READY   STATUS    RESTARTS   AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+inventory-fn-558b8f5db4-lf2jc   1/1     Running   0          10s   10.42.0.144   ead-server   <none>           <none>

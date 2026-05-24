@@ -1,0 +1,15 @@
+# HELP inventory_requests_total Total inventory business requests received
+# TYPE inventory_requests_total counter
+inventory_requests_total 1
+
+# HELP inventory_success_total Successful inventory business requests
+# TYPE inventory_success_total counter
+inventory_success_total 1
+
+# HELP inventory_error_total Inventory error responses
+# TYPE inventory_error_total counter
+inventory_error_total 0
+
+# HELP inventory_out_of_stock_total Inventory out-of-stock responses
+# TYPE inventory_out_of_stock_total counter
+inventory_out_of_stock_total 0

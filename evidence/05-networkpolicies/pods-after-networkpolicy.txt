@@ -1,0 +1,8 @@
+NAME                           READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+checkout-fn-564675c958-rblv9   1/1     Running   0          8m49s   10.42.0.141   ead-server   <none>           <none>
+denied-client                  1/1     Running   0          14s     10.42.0.146   ead-server   <none>           <none>
+gateway-649975df48-dccj9       1/1     Running   0          22m     10.42.0.139   ead-server   <none>           <none>
+inventory-fn-f476fdc75-qpckw   1/1     Running   0          2m36s   10.42.0.145   ead-server   <none>           <none>
+postgres-5dfdc9df44-sdx9j      1/1     Running   0          22m     10.42.0.135   ead-server   <none>           <none>
+pricing-fn-6cf8fc5f59-654sq    1/1     Running   0          8m49s   10.42.0.142   ead-server   <none>           <none>
+toolbox                        0/1     Unknown   0          17h     <none>        ead-server   <none>           <none>

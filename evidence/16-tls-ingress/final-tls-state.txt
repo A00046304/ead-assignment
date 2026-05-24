@@ -1,0 +1,6 @@
+NAME                                        CLASS     HOSTS   ADDRESS     PORTS     AGE
+ingress.networking.k8s.io/gateway-ingress   traefik   *       10.0.2.15   80, 443   49d
+
+NAME                     TYPE                DATA   AGE
+secret/ca2-ingress-tls   kubernetes.io/tls   2      4m16s
+secret/postgres-secret   Opaque              3      49d

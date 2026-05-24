@@ -1,0 +1,1 @@
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"inventory_requests_total","instance":"inventory-svc.lab4.svc.cluster.local:3002","job":"inventory-fn"},"value":[1779381653.340,"3"]}]}}

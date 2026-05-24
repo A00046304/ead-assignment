@@ -1,0 +1,28 @@
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                     SELECTOR
+deployment.apps/checkout-fn    0/1     1            0           48d   checkout-fn    lab4/checkout-fn:v6-ca2    app=checkout-fn
+deployment.apps/gateway        0/1     1            0           48d   nginx          nginx:1.27-alpine          app=gateway
+deployment.apps/inventory-fn   0/1     1            0           48d   inventory-fn   lab4/inventory-fn:v3-ca2   app=inventory-fn
+deployment.apps/postgres       0/1     1            0           48d   postgres       postgres:15-alpine         app=postgres
+deployment.apps/pricing-fn     0/1     1            0           48d   pricing-fn     lab4/pricing-fn:v3-ca2     app=pricing-fn
+
+NAME                                READY   STATUS                   RESTARTS      AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+pod/checkout-fn-577bcdf867-47r9d    0/1     Pending                  0             17m   <none>        <none>       <none>           <none>
+pod/checkout-fn-577bcdf867-md6qw    0/1     ContainerStatusUnknown   1 (47m ago)   51m   10.42.0.166   ead-server   <none>           <none>
+pod/gateway-5bcb4566c5-bz5ld        0/1     ContainerStatusUnknown   1             31m   10.42.0.176   ead-server   <none>           <none>
+pod/gateway-5bcb4566c5-p4sjl        0/1     Pending                  0             17m   <none>        <none>       <none>           <none>
+pod/inventory-fn-6c85dbb65d-7w597   0/1     ContainerStatusUnknown   1 (47m ago)   51m   10.42.0.171   ead-server   <none>           <none>
+pod/inventory-fn-6c85dbb65d-9xlbv   0/1     Pending                  0             17m   <none>        <none>       <none>           <none>
+pod/postgres-5dfdc9df44-9mn7c       0/1     ContainerStatusUnknown   1 (47m ago)   55m   10.42.0.170   ead-server   <none>           <none>
+pod/postgres-5dfdc9df44-llm7l       0/1     Pending                  0             17m   <none>        <none>       <none>           <none>
+pod/pricing-fn-76db98b5-chnjd       0/1     Error                    1             51m   10.42.0.169   ead-server   <none>           <none>
+pod/pricing-fn-76db98b5-tprxz       0/1     Pending                  0             17m   <none>        <none>       <none>           <none>
+
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/checkout-svc    ClusterIP   10.43.36.49     <none>        3003/TCP   48d   app=checkout-fn
+service/gateway-svc     ClusterIP   10.43.138.64    <none>        80/TCP     48d   app=gateway
+service/inventory-svc   ClusterIP   10.43.234.104   <none>        3002/TCP   48d   app=inventory-fn
+service/postgres-svc    ClusterIP   10.43.244.141   <none>        5432/TCP   48d   app=postgres
+service/pricing-svc     ClusterIP   10.43.162.133   <none>        3001/TCP   48d   app=pricing-fn
+
+NAME                                        CLASS     HOSTS   ADDRESS     PORTS   AGE
+ingress.networking.k8s.io/gateway-ingress   traefik   *       10.0.2.15   80      48d
